@@ -36,7 +36,7 @@
 <header id="header">
   <a href="#">
 
-    <div id="logo" style="background-image: url('images/logo.png');"></div>
+    <div id="logo" style="background-image: url('static/upload/images/logo.png');"></div>
 
     <div id="title">
       <h1>离别歌</h1>
@@ -85,136 +85,22 @@
     <section id="writing">
         <span class="h1"><a href="#">Archives</a></span>
         <ul class="post-list">
-            
+            {% for article in articles %}
             <li class="post-item">
                 <div class="meta">
                     
                     <time datetime="April 29, 2018, 8:07 p.m." itemprop="datePublished">
-                        2018 Apr 29 
+                        {{ article.created_time }}
                     </time>
                     
                 </div>
                 <span>
-                    <a href="/PENETRATION/escapeshellarg-and-parameter-injection.html" >谈escapeshellarg绕过与参数注入漏洞</a>
+                    <a href="/article/{{ article.pk }}" >{{ article.title }}</a>
                 </span>
             </li>
+            {% endfor %}
             
-            <li class="post-item">
-                <div class="meta">
-                    
-                    <time datetime="March 29, 2018, 7:39 p.m." itemprop="datePublished">
-                        2018 Mar 29 
-                    </time>
-                    
-                </div>
-                <span>
-                    <a href="/PENETRATION/apache-cve-2017-15715-vulnerability.html" >利用最新Apache解析漏洞（CVE-2017-15715）绕过上传黑名单</a>
-                </span>
-            </li>
-            
-            <li class="post-item">
-                <div class="meta">
-                    
-                    <time datetime="March 26, 2018, 10:27 a.m." itemprop="datePublished">
-                        2018 Mar 26 
-                    </time>
-                    
-                </div>
-                <span>
-                    <a href="/PENETRATION/client-session-security.html" >客户端 session 导致的安全问题</a>
-                </span>
-            </li>
-            
-            <li class="post-item">
-                <div class="meta">
-                    
-                    <time datetime="March 8, 2018, 7:30 p.m." itemprop="datePublished">
-                        2018 Mar 08 
-                    </time>
-                    
-                </div>
-                <span>
-                    <a href="/PENETRATION/use-target-to-spoof-fishing.html" >前端黑魔法之远程控制地址栏</a>
-                </span>
-            </li>
-            
-            <li class="post-item">
-                <div class="meta">
-                    
-                    <time datetime="Feb. 20, 2018, 2:12 p.m." itemprop="datePublished">
-                        2018 Feb 20 
-                    </time>
-                    
-                </div>
-                <span>
-                    <a href="/PENETRATION/some-tricks-of-attacking-lnmp-web-application.html" >攻击LNMP架构Web应用的几个小Tricks</a>
-                </span>
-            </li>
-            
-            <li class="post-item">
-                <div class="meta">
-                    
-                    <time datetime="Jan. 2, 2018, 9:35 p.m." itemprop="datePublished">
-                        2018 Jan 02 
-                    </time>
-                    
-                </div>
-                <span>
-                    <a href="/PENETRATION/python-http-server-open-redirect-vulnerability.html" >python http.server open redirect vulnerability</a>
-                </span>
-            </li>
-            
-            <li class="post-item">
-                <div class="meta">
-                    
-                    <time datetime="Nov. 4, 2017, 6:39 a.m." itemprop="datePublished">
-                        2017 Nov 04 
-                    </time>
-                    
-                </div>
-                <span>
-                    <a href="/PENETRATION/node-postgres-code-execution-vulnerability.html" >node.js + postgres 从注入到Getshell</a>
-                </span>
-            </li>
-            
-            <li class="post-item">
-                <div class="meta">
-                    
-                    <time datetime="Sept. 23, 2017, 10:13 p.m." itemprop="datePublished">
-                        2017 Sep 23 
-                    </time>
-                    
-                </div>
-                <span>
-                    <a href="/PENETRATION/unobfuscated-phpjiami.html" >phpjiami 数种解密方法</a>
-                </span>
-            </li>
-            
-            <li class="post-item">
-                <div class="meta">
-                    
-                    <time datetime="Sept. 8, 2017, 10:05 a.m." itemprop="datePublished">
-                        2017 Sep 08 
-                    </time>
-                    
-                </div>
-                <span>
-                    <a href="/PENETRATION/django-debug-page-xss.html" >Django debug page XSS漏洞（CVE-2017-12794）分析</a>
-                </span>
-            </li>
-            
-            <li class="post-item">
-                <div class="meta">
-                    
-                    <time datetime="Aug. 13, 2017, 9:58 p.m." itemprop="datePublished">
-                        2017 Aug 13 
-                    </time>
-                    
-                </div>
-                <span>
-                    <a href="/PENETRATION/pwnhub-first-shalon-ctf-web-writeup.html" >Pwnhub 第一次线下沙龙竞赛Web题解析</a>
-                </span>
-            </li>
+
             
         </ul>
     </section>
@@ -237,7 +123,7 @@
   </div>
 </footer>
 
-<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'home/js/main.js' %}"></script>
 <script>
 var _hmt = _hmt || [];
 (function() {

@@ -5,9 +5,23 @@ from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=50,verbose_name="分类名")
 
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = '分类'
+        verbose_name_plural = '分类列表'
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=50,verbose_name="标签名")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = '标签'
+        verbose_name_plural = '标签列表'
 
 
 class Article(models.Model):
@@ -20,3 +34,10 @@ class Article(models.Model):
     tags = models.ManyToManyField(Tag,blank=True,verbose_name=u"标签")
     author = models.ForeignKey(User,verbose_name="作者")
     views = models.PositiveIntegerField(default=0,verbose_name="浏览量")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = '文章'
+        verbose_name_plural = '文章列表'
